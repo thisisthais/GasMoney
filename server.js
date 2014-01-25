@@ -24,31 +24,58 @@ app.post('/result', function(req,res) {
 	var xml = httpGet(url);
 	//console.log(xml);
 
-	var carID = parseString(xml, function (err, result) {
+    var carID;
+	parseString(xml, function (err, result) {
     //console.dir(result);
-    console.log(result.menuItems.menuItem[0].value);
-    return result.menuItems.menuItem[0].value;
+    console.log(result.menuItems.menuItem[0].value);//Just automatically  using the first car, yuck
+    carID = result.menuItems.menuItem[0].value;
     //console.log(Object.prototype.toString(carID));
 	});
-    //console.log(carID);
+    console.log("carID: " + carID);
 
     url = "http://www.fueleconomy.gov/ws/rest/vehicle/" + carID[0];
     console.log(url);
 
-    for (var x in carID) {
-    	console.log(carID[x]);
-    }
+    xml = httpGet(url);
+
+    var carMPG;
+    parseString(xml, function (err, result) {
+        //console.dir("Ucity: " + result.vehicle.UCity);
+        carMPG = result.vehicle.UCity;
+    });
+    console.log("carMPG: " + carMPG[0]);
+
+    url = "http://www.fueleconomy.gov/ws/rest/fuelprices";
+    xml = httpGet(url);
+
+    var gasPrice;
+    parseString(xml, function(err, result) {
+        console.dir(result);
+        gasPrice = result.fuelPrices.regular;
+    });
+    console.log("gasPrice: " + gasPrice);
+
 });
 
 
-function httpGet(theUrl)
-{
+function httpGet(theUrl) {
     var xmlHttp = null;
 
     xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false );
     xmlHttp.send( null );
     return xmlHttp.responseText;
+}
+
+function GetObjectKeyIndex(obj, keyToFind) {
+    var i = 0, key;
+    for (key in obj) {
+        if (key == keyToFind) {
+            return i;
+        }
+        i++;
+    }
+    return null;
 }
 
 
