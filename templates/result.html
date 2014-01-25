@@ -8,6 +8,9 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap.amelia.css" rel="stylesheet">
+    <link href="css/googlemaps.css" rel="stylesheet">
+
+    <script src="js/googlemaps.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,5 +21,29 @@
   </head>
   <body>
     <h1>Suggested payment: ${{payment}}</h1>
+            <div class="form-group">
+               <label>Driver Email</label><input name="driver" type="text" class="form-control" id="driver"/>
+            </div>
+            <div class="form-group">
+               <label>Amount</label><input name="amount" type="text" class="form-control" value="${{payment}}" id="amount"/>
+            </div> 
+            <div class="form-group">
+               <label>Message</label><input name="message" type="text" class="form-control" value="Thanks for the ride!" id="message" />
+            </div> 
+            <script type="text/javascript">
+              function emailLink()
+              {
+                driverEmail = document.getElementById("driver").value;
+                paymentAmount = document.getElementById("amount").value;
+                messageBody = document.getElementById("message").value;
+                console.log(driverEmail+" "+paymentAmount+" "+messageBody);
+                /*document.getElementById('mailto').innerHTML = "<a href=\"mailto:"+driverEmail+"?Subject="+paymentAmount+"&body="+messageBody+"&cc=cash@square.com\" target=\"_top\">Mail to link.</a>";*/
+                var link = "mailto:"+driverEmail+"?Subject="+paymentAmount+"&body="+messageBody+"&cc=cash@square.com";
+
+                window.location.href = link;
+              }
+            </script>        
+            <button type="text" class="btn btn-default" onclick="emailLink()">Send Payment</button>
+            <div href="mailto:" id="mailto"></div>
   </body>
 </html>

@@ -8,7 +8,7 @@ app.use(express.bodyParser());
 var engines = require('consolidate');
 app.engine('html', engines.hogan);
 app.set('views', __dirname+'/templates');
-
+var nodemailer = require("nodemailer");
 app.use(express.static(__dirname + '/public'));
 
 app.post('/result', function(req,res) {
