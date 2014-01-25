@@ -95,6 +95,7 @@
 						//console.log(response);
 						console.log(response.rows[0].elements[0].distance.text);
 						distance = response.rows[0].elements[0].distance.text;
+						document.getElementById("distance").value = distance;
 					}
 					
 					else

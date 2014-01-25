@@ -54,13 +54,17 @@ app.post('/result', function(req,res) {
         gasPrice = result.fuelPrices.regular;
     });
     console.log("gasPrice: " + gasPrice);
+    var distance = req.body.distance;
+    distance = distance.substring(0,distance.length-3).replace(/[^\d\.\-\ ]/g, '');
+    distance = parseFloat(distance);
+    console.log(distance);
 
-    res.render('result.html', {title: "rendered"});
-    console.log(res.body);
+    var payment = ((distance*gasPrice)/carMPG).toFixed(2);
+    res.render('result.html', {payment: payment});
 });
 
 app.get('/', function(req,res) {
-    res.render('index.html', {title: "rendered"});
+    res.render('index.html', {});
 });
 
 
