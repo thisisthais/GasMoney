@@ -1,0 +1,13 @@
+{
+  "name": "GasMoney",
+  "description": "Easily pay your friends for gas.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "xml2js": "0.4.x",
+    "xmlhttprequest": "1.6.x",
+    "hogan.js": "2.0.x",
+    "consolidate": "0.7.x"
+    }
+}
