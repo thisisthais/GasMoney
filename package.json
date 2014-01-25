@@ -10,5 +10,24 @@
     "hogan.js": "2.0.x",
     "consolidate": "0.7.x",
     "nodemailer": "~0.6.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tcorreia16/GasMoney.git"
+  },
+  "keywords": [
+    "gasmoney",
+    "heroku"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tcorreia16/GasMoney/issues"
+  },
+  "homepage": "https://github.com/tcorreia16/GasMoney"
 }
