@@ -50,7 +50,7 @@ app.post('/result', function(req,res) {
 
     var gasPrice;
     parseString(xml, function(err, result) {
-        console.dir(result);
+        //console.dir(result);
         gasPrice = result.fuelPrices.regular;
     });
     console.log("gasPrice: " + gasPrice);
