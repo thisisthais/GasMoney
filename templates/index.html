@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--compfight.com-->
+<html>
+  <head>
+    <meta charset=”utf-8”>
+    <title>Gas Money</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.amelia.css" rel="stylesheet">
+    <link href="css/googlemaps.css" rel="stylesheet">
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyDy9YfB7lwzxmLKkyUFuS85mtS2bvCKx3g"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="js/googlemaps.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <h1>Gas Money</h1>
+
+          <h2>Route</h2>
+          <form role="form" action="/result" method="post">
+            <div id="map-canvas"></div>
+              <input id="pac-start" class="controls" type="text"
+                      placeholder="Enter a start location">
+              <input id="pac-destination" class="controls" type="text"
+                      placeholder="Enter a destination location">
+          
+            <br/><br/>
+            <h2>Car Info</h2>
+            <div class="form-group">
+               <label for="exampleInputCarYear">Year</label><input name="year" type="year" class="form-control" id="exampleInputCarYear" />
+            </div>
+            <div class="form-group">
+               <label for="exampleInputCarMake">Make</label><input name="make" type="make" class="form-control" id="exampleInputCarMake" />
+            </div>
+            <div class="form-group">
+               <label for="exampleInputCarModel">Model</label><input name="model" type="model" class="form-control" id="exampleInputCarModel" />
+            </div>            
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body> 
+</html>

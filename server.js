@@ -55,6 +55,12 @@ app.post('/result', function(req,res) {
     });
     console.log("gasPrice: " + gasPrice);
 
+    res.render('result.html', {title: "rendered"});
+    console.log(res.body);
+});
+
+app.get('/', function(req,res) {
+    res.render('index.html', {title: "rendered"});
 });
 
 
